@@ -10,9 +10,15 @@ export function verifyWebhookSignature(
   appSecret: string
 ): boolean {
   if (!signatureHeader || !appSecret) return false;
+  const secret = appSecret.trim();
   const expected = signatureHeader.replace(/^sha256=/, "").trim();
-  const hmac = crypto.createHmac("sha256", appSecret);
+  if (expected.length !== 64 || !/^[a-f0-9]+$/i.test(expected)) return false;
+  const hmac = crypto.createHmac("sha256", secret);
   hmac.update(rawBody);
   const digest = hmac.digest("hex");
-  return crypto.timingSafeEqual(Buffer.from(expected, "hex"), Buffer.from(digest, "hex"));
+  try {
+    return crypto.timingSafeEqual(Buffer.from(expected, "hex"), Buffer.from(digest, "hex"));
+  } catch {
+    return false;
+  }
 }

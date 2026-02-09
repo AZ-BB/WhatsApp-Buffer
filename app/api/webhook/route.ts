@@ -7,6 +7,7 @@ import { parseIncomingMessage, getContactName } from "@/lib/utils/parse-whatsapp
 import { verifyWebhookSignature } from "@/lib/utils/webhook-signature";
 import type { WhatsAppWebhookPayload } from "@/types/whatsapp";
 
+// Must match the "Verify token" value set in Meta App Dashboard > WhatsApp > Configuration
 const VERIFY_TOKEN = process.env.WEBHOOK_VERIFY_TOKEN ?? "whatsapp-verify-token";
 
 /**
@@ -33,12 +34,16 @@ export async function GET(request: NextRequest) {
  * Parses payload, stores messages, logs metadata, returns 200.
  */
 export async function POST(request: NextRequest) {
-  const appSecret = process.env.META_APP_SECRET;
   const rawBody = await request.text();
   const signature = request.headers.get("x-hub-signature-256");
+  const appSecret = process.env.META_APP_SECRET?.trim();
+  const skipVerification = process.env.SKIP_WEBHOOK_SIGNATURE_VERIFICATION === "true";
 
-  if (appSecret && signature && !verifyWebhookSignature(rawBody, signature, appSecret)) {
-    return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+  if (!skipVerification && appSecret && signature) {
+    const isValid = verifyWebhookSignature(rawBody, signature, appSecret);
+    if (!isValid) {
+      return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+    }
   }
 
   let payload: WhatsAppWebhookPayload;
