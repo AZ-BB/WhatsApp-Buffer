@@ -42,84 +42,71 @@ export default function PrivacyPage() {
         </p>
 
         <div className="prose prose-zinc dark:prose-invert max-w-none space-y-6 text-zinc-700 dark:text-zinc-300">
+          <p>
+            WhatsApp CRM (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) respects your privacy. This Privacy Policy explains how we collect, use, and protect information when you interact with our WhatsApp messaging system.
+          </p>
+
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              1. Introduction
+              Information We Collect
             </h2>
             <p>
-              This Privacy Policy describes how we collect, use, and protect information in connection with the WhatsApp CRM Gateway service. By using the Service, you agree to the practices described here.
+              We collect messages sent through WhatsApp, phone numbers, timestamps, and metadata required to provide customer support and CRM services.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              2. Information We Process
+              How We Use Information
             </h2>
-            <p>
-              The Service processes data necessary to operate the messaging gateway and CRM, including:
-            </p>
+            <p>We use collected data to:</p>
             <ul className="list-disc pl-6 space-y-1">
-              <li>Phone numbers and contact names of persons who communicate via WhatsApp</li>
-              <li>Message content (text and metadata) sent and received through the integration</li>
-              <li>Lead status and notes you set in the CRM</li>
-              <li>Webhook and API request logs for operation and debugging</li>
+              <li>respond to customer inquiries</li>
+              <li>manage conversations</li>
+              <li>improve service quality</li>
+              <li>maintain communication records</li>
             </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+              Data Storage and Security
+            </h2>
             <p>
-              This data is received from the WhatsApp Cloud API (Meta) when messages are sent or received, and is stored in our database to provide the Service.
+              Data is stored securely using encrypted infrastructure and access controls. We take reasonable steps to protect information from unauthorized access.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              3. How We Use Information
+              Third-Party Services
             </h2>
             <p>
-              We use the information to deliver the Service (receiving and sending messages, storing conversations, and displaying the CRM), to maintain security and prevent abuse, and to improve the Service. We do not sell personal data to third parties.
+              We use Meta&apos;s WhatsApp Business Platform to deliver messages. Your information may be processed by Meta in accordance with their policies.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              4. Third-Party Services
+              User Rights
             </h2>
             <p>
-              The Service integrates with Meta&apos;s WhatsApp Cloud API and may use other third-party services (e.g. hosting and databases). Data is processed in accordance with their respective privacy and data processing terms. Meta&apos;s policies apply to WhatsApp data; we encourage you to review Meta&apos;s Privacy Policy and WhatsApp&apos;s relevant documentation.
+              You may request deletion of your data at any time by contacting us.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              5. Data Retention and Security
+              Contact
             </h2>
             <p>
-              We retain data for as long as needed to provide the Service and as required by law. We implement reasonable technical and organizational measures to protect data against unauthorized access, loss, or alteration.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              6. Your Rights
-            </h2>
-            <p>
-              Depending on your jurisdiction, you may have rights to access, correct, delete, or restrict processing of your personal data. To exercise these rights or ask questions about our practices, please contact us using the contact information provided in the application.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              7. Changes
-            </h2>
-            <p>
-              We may update this Privacy Policy from time to time. We will post the updated policy on this page and update the &quot;Last updated&quot; date. Continued use of the Service after changes constitutes acceptance of the revised policy.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              8. Contact
-            </h2>
-            <p>
-              For privacy-related questions or requests, please contact us through the contact information provided in the application or on the website.
+              For privacy concerns:{" "}
+              <a
+                href="mailto:support@yourdomain.com"
+                className="text-green-600 underline hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
+              >
+                support@whats-app-crm-gamma.vercel.app
+              </a>
             </p>
           </section>
         </div>
