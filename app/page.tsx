@@ -15,6 +15,14 @@ export default function Home() {
       >
         Open dashboard
       </Link>
+      <footer className="mt-12 flex gap-6 text-sm text-zinc-500">
+        <Link href="/terms" className="hover:text-zinc-700 dark:hover:text-zinc-300">
+          Terms of Service
+        </Link>
+        <Link href="/privacy" className="hover:text-zinc-700 dark:hover:text-zinc-300">
+          Privacy Policy
+        </Link>
+      </footer>
     </div>
   );
 }
